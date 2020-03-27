@@ -20,21 +20,13 @@ export default function NewIncident() {
   async function handleNewIncident(e) {
     e.preventDefault()
 
-    const headers = {
-      Authorization: ongId
-    }
-
     const data = { title, description, value }
 
-    console.log(headers)
     try {
       await api.post('incidents', data, { headers: { Authorization: ongId } })
 
-      console.log(1)
       history.push('/profile')
-
     } catch (error) {
-      console.log(2)
       alert('Erro ao cadastrar caso, tente novamente.')
     }
   }
